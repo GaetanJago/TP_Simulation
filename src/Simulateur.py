@@ -1,3 +1,6 @@
+from src.DebutSimulation import DebutSimulation
+from src.Evenement import Evenement
+from src.FinSimulation import FinSimulation
 from src.Singleton import Singleton
 
 class Simulateur(metaclass=Singleton):
@@ -22,8 +25,10 @@ class Simulateur(metaclass=Singleton):
 
 
     #TODO Ajouter historique
-    heureActuelle = 0.0
+    minuteActuelle = 0.0
     echeancier = []
+
+    compteurEvenement = 0
 
     def __init__(self):
         pass
@@ -38,24 +43,35 @@ class Simulateur(metaclass=Singleton):
         self.borneSupRep = borneSupRep
         self.borneInfRep = borneInfRep
 
-    def ajouterEvenement(self, heure, evenement):
+    def ajouterEvenement(self, minute, evenement):
         iterateur = len(self.echeancier) - 1 # On se positionne a la derniere ligne de l'echeancier
         insere = False
         while insere == False:
             if iterateur == -1:
-                self.echeancier.insert(0, (heure, evenement))
+                self.echeancier.insert(0, (minute, evenement))
                 insere = True
-            elif self.echeancier[iterateur][0] <= heure:
-                self.echeancier.insert(iterateur+1, (heure, evenement))
+            elif self.echeancier[iterateur][0] <= minute:
+                self.echeancier.insert(iterateur+1, (minute, evenement))
                 insere = True
             iterateur -= 1
 
+    def lancerAvecDureeMax(self, duree):
+        self.minuteActuelle = 480
 
+        # Ajout de l'evenement de debut de simulation
+        self.ajouterEvenement(self.minuteActuelle, DebutSimulation())
 
+        # Ajout de l'evt de fin de simulation
+        self.ajouterEvenement(self.minuteActuelle + duree, FinSimulation())
 
+        while self.compteurEvenement < len(self.echeancier):
+            evenement = self.echeancier[self.compteurEvenement]
+            #TODO ajouter historique calcAire
+            self.minuteActuelle = evenement[0]
 
-
-
+            # Executer evenement
+            evenement[1].procedure()
+            self.compteurEvenement += 1
 
 
 
