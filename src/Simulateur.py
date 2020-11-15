@@ -69,13 +69,13 @@ class Simulateur(metaclass=Singleton):
             # Récupérer le premier couple de l'échéancier
             couple = self.echeancier[0]
 
-            # Supprimer de la liste le couple récupéré
-            self.echeancier = self.echeancier[1:]
-
             # maj date
             self.dateSimu = couple[0]
             # Executer evenement
             couple[1].procedure()
+
+            # Supprimer de la liste le couple récupéré
+            self.echeancier.pop(0)
 
             # TODO MaJ historique
 
