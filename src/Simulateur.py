@@ -1,4 +1,4 @@
-from src.Singleton import Singleton
+from TP_Simulation.src.Singleton import Singleton
 
 class Simulateur(metaclass=Singleton):
 
