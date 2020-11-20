@@ -6,13 +6,16 @@ class Historique:
     aireQr = 0
     aireBr = 0
 
-    def __init__(self, nbBusHisto, qcHisto, qrHisto, bcHisto, nbBusRepHisto, brHisto):
-        self.nbBusHisto = nbBusHisto
-        self.qcHisto = qcHisto  # nombre de bus dans la file C
-        self.qrHisto = qrHisto  # nombre de bus dans la file R
-        self.bcHisto = bcHisto  # le statut centre de controle
-        self.nbBusRepHisto = nbBusRepHisto  # nombre de bus repares
-        self.brHisto = brHisto # le statut centre de reparation
+    def __init__(self):
+        pass
+
+    # def __init__(self, nbBusHisto, qcHisto, qrHisto, bcHisto, nbBusRepHisto, brHisto):
+    #     self.nbBusHisto = nbBusHisto
+    #     self.qcHisto = qcHisto  # nombre de bus dans la file C
+    #     self.qrHisto = qrHisto  # nombre de bus dans la file R
+    #     self.bcHisto = bcHisto  # le statut centre de controle
+    #     self.nbBusRepHisto = nbBusRepHisto  # nombre de bus repares
+    #     self.brHisto = brHisto # le statut centre de reparation
 
     def afficherGraphe(self):
         print("afficher graphe")

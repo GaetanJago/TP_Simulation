@@ -1,6 +1,4 @@
 from src.DebutSimulation import DebutSimulation
-from src.Evenement import Evenement
-from src.FinSimulation import FinSimulation
 from src.Singleton import Singleton
 from src.Historique import Historique
 
@@ -55,6 +53,26 @@ class Simulateur(metaclass=Singleton):
         self.borneSupRep = borneSupRep
         self.borneInfRep = borneInfRep
 
+    def resetSimulateur(self):
+        self.dateSimu = 0.0
+        self.nbBus = 0
+        self.qc = 0
+        self.qr = 0
+        self.bc = 0
+        self.br = 0
+        self.nbBusRep = 0
+
+        self.TpsAttenteMoyControle = 0
+        self.TpsAttenteMoyReparation = 0
+        self.TauxUtilisationCentrereparation = 0
+
+        self.histo = Historique()
+        self.echeancier = []
+
+        self.dureeMax = 0
+        self.nbBusMax = 0
+
+
     def ajouterEvenement(self, date, evenement):
         iterateur = len(self.echeancier) - 1 # On se positionne a la derniere ligne de l'echeancier
         insere = False
@@ -88,12 +106,19 @@ class Simulateur(metaclass=Singleton):
             # Executer evenement
             couple[1].procedure()
 
-            # Supprimer de la liste le couple récupéré
-            self.echeancier.pop(0)
+            # si la liste n'est pas deja vide
+            if len(self.echeancier) > 0:
+                # Supprimer de la liste le couple récupéré
+                self.echeancier.pop(0)
 
-            # TODO MaJ historique
 
     def miseAJourAires(self, dateD1, dateD2):
+        # print("date D1 :", dateD1)
+        # print("date D2 :", dateD2)
+        # print(self.histo.aireQc)
+        # print(self.qc)
         self.histo.aireQc += (dateD2 - dateD1) * self.qc
         self.histo.aireQr += (dateD2 - dateD1) * self.qr
         self.histo.aireBr += (dateD2 - dateD1) * self.br
+
+
