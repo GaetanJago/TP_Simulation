@@ -1,4 +1,5 @@
 from src.Evenement import Evenement
+from src.Simulateur import Simulateur
 
 
 class FinSimulation(Evenement):
@@ -7,4 +8,6 @@ class FinSimulation(Evenement):
         pass
 
     def procedure(self):
-        pass
+        simulateur = Simulateur()
+        simulateur.echeancier = []
+

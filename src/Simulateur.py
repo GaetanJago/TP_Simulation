@@ -25,6 +25,13 @@ class Simulateur(metaclass=Singleton):
     borneSupRep = None
     borneInfRep = None
 
+
+    #Variables de fin de simulation
+    TpsAttenteMoyControle = 0
+    TpsAttenteMoyReparation = 0
+    TauxUtilisationCentrereparation = 0
+
+
     histo = Historique()
 
     dureeMax = 0
