@@ -80,6 +80,9 @@ class Simulateur(metaclass=Singleton):
             # Récupérer le premier couple de l'échéancier
             couple = self.echeancier[0]
 
+            # Mise a jour des aires
+            self.miseAJourAires(self.dateSimu, couple[0])
+
             # maj date
             self.dateSimu = couple[0]
             # Executer evenement
@@ -90,5 +93,7 @@ class Simulateur(metaclass=Singleton):
 
             # TODO MaJ historique
 
-
-
+    def miseAJourAires(self, dateD1, dateD2):
+        self.histo.aireQc += (dateD2 - dateD1) * self.qc
+        self.histo.aireQr += (dateD2 - dateD1) * self.qr
+        self.histo.aireBr += (dateD2 - dateD1) * self.br
