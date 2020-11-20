@@ -4,7 +4,7 @@ from TP_Simulation.src.Simulateur import Simulateur
 class ArriveeFileC(Evenement):
 
     def __init__(self):
-        pass
+        super(ArriveeFileC, self).__init__()
 
     def procedure(self):
         simulateur = Simulateur()

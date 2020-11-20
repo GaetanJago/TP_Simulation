@@ -5,7 +5,7 @@ from src.Simulateur import Simulateur
 class FinSimulation(Evenement):
 
     def __init__(self):
-        pass
+        super(FinSimulation, self).__init__()
 
     def procedure(self):
         simulateur = Simulateur()

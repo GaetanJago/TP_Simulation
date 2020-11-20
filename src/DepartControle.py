@@ -8,7 +8,7 @@ from src.Simulateur import Simulateur
 class DebutSimulation(Evenement):
 
     def __init__(self):
-        pass
+        super(DebutSimulation, self).__init__()
 
     def procedure(self):
         simulateur = Simulateur()

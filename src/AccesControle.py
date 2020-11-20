@@ -5,7 +5,7 @@ from src.Maths import *
 class AccesControle(Evenement):
 
     def __init__(self):
-        pass
+        super(AccesControle, self).__init__()
 
     def procedure(self):
         simulateur = Simulateur()

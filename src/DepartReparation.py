@@ -8,7 +8,7 @@ class DepartReparation (Evenement):
 
 
     def __init__(self):
-        pass
+        super(DepartReparation, self).__init__()
 
     def procedure(self):
         simulateur = Simulateur()

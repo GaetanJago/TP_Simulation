@@ -5,7 +5,7 @@ from src.Maths import *
 
 class ArriveeBus(Evenement):
     def __init__(self):
-        pass
+        super(ArriveeBus, self).__init__()
 
     def procedure(self):
         simulateur = Simulateur()

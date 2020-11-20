@@ -5,7 +5,7 @@ from src.AccesReparation import AccesReparation
 class ArriveeFileR(Evenement):
 
     def __init__(self):
-        pass
+        super(ArriveeFileR, self).__init__()
 
     def procedure(self):
         simu = Simulateur()
