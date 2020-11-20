@@ -13,10 +13,8 @@ class AccesReparation (Evenement):
         simulateur = Simulateur()
         # on décrémente le nombre de bus
         simulateur.nbBus = simulateur.nbBus - 1
-       #on réquisitionne un poste dans le centre de réparation
+        #on réquisitionne un poste dans le centre de réparation
         simulateur.br = simulateur.br + 1
-        # On ajoute l'evenement arriveeBus dans l'échéancier
-        simulateur.ajouterEvenement(simulateur.dateSimu + exp(1 / 2), self)
-        #On ajoute l'evenement arrivéeFileC dans l'échéancier
-        simulateur.ajouterEvenement(simulateur.dateSimu, arriveeFileC())
+        # On ajoute l'evenement DepartReparation dans l'échéancier
+        simulateur.ajouterEvenement(simulateur.dateSimu + uniforme(2.1, 4.5), DepartReparation())
 
