@@ -10,6 +10,6 @@ class ArriveeFileC(Evenement):
         simulateur = Simulateur()
         simulateur.qc += 1
         if simulateur.bc == 0:
-            simulateur.ajouterEvenement(simulateur.dateSimu, AccessControle())
+            simulateur.ajouterEvenement(simulateur.dateSimu, AccesControle())
 
 
