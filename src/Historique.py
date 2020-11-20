@@ -2,6 +2,10 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 class Historique:
+    aireQc = 0
+    aireQr = 0
+    aireBr = 0
+
     def __init__(self, nbBusHisto, qcHisto, qrHisto, bcHisto, nbBusRepHisto, brHisto):
         self.nbBusHisto = nbBusHisto
         self.qcHisto = qcHisto  # nombre de bus dans la file C
@@ -30,15 +34,15 @@ class Historique:
 
     def calcAire(self, D1, D2):
         print("calculer des aires")
-        aireQc, aireQr, aireBr = 0, 0, 0
+        self.aireQc, self.aireQr, self.aireBr = 0, 0, 0
         for qc in self.qcHisto:
-            aireQc += (D2 - D1)*qc
+            self.aireQc += (D2 - D1)*qc
         for qr in self.qrHisto:
-            aireQr += (D2 - D1)*qr
+            self.aireQr += (D2 - D1)*qr
         for br in self.brHisto:
-            aireBr += (D2 - D1)*br
-        print(aireQc, aireQr, aireBr)
-        return aireQc, aireQr, aireBr
+            self.aireBr += (D2 - D1)*br
+        print(self.aireQc, self.aireQr, self.aireBr)
+        return self.aireQc, self.aireQr, self.aireBr
 
     def attenteMoy(self, nbBus, nbBusRep, D1, D2):
         print("calculer le temps d'attente moyen")

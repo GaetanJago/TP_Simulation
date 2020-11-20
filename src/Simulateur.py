@@ -2,6 +2,7 @@ from src.DebutSimulation import DebutSimulation
 from src.Evenement import Evenement
 from src.FinSimulation import FinSimulation
 from src.Singleton import Singleton
+from src.Historique import Historique
 
 
 class Simulateur(metaclass=Singleton):
@@ -23,6 +24,8 @@ class Simulateur(metaclass=Singleton):
     borneInfCOntrole = None
     borneSupRep = None
     borneInfRep = None
+
+    histo = Historique()
 
     dureeMax = 0
     nbBusMax = 0
