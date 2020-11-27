@@ -18,3 +18,5 @@ class FinSimulation(Evenement):
 
         simulateur.TauxUtilisationCentrereparation = simulateur.histo.aireBr/(2*simulateur.dureeMax)
 
+        simulateur.tailleMoyFileC = simulateur.histo.aireQc/simulateur.dureeMax
+        simulateur.tailleMoyFileR = simulateur.histo.aireQr/simulateur.dureeMax

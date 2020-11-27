@@ -28,6 +28,8 @@ class Simulateur(metaclass=Singleton):
     TpsAttenteMoyControle = 0
     TpsAttenteMoyReparation = 0
     TauxUtilisationCentrereparation = 0
+    tailleMoyFileC = 0
+    tailleMoyFileR = 0
 
 
     histo = Historique()
@@ -65,6 +67,8 @@ class Simulateur(metaclass=Singleton):
         self.TpsAttenteMoyControle = 0
         self.TpsAttenteMoyReparation = 0
         self.TauxUtilisationCentrereparation = 0
+        self.tailleMoyFileC = 0
+        self.tailleMoyFileR = 0
 
         self.histo = Historique()
         self.echeancier = []
