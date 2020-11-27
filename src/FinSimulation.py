@@ -1,5 +1,5 @@
 from src.Evenement import Evenement
-
+import src.Simulateur as Simulateur
 
 
 class FinSimulation(Evenement):
@@ -8,8 +8,8 @@ class FinSimulation(Evenement):
         super(FinSimulation, self).__init__()
 
     def procedure(self):
-        from src.Simulateur import Simulateur
-        simulateur = Simulateur()
+
+        simulateur = Simulateur.Simulateur()
         simulateur.echeancier = []
         if simulateur.nbBus > 0:
             simulateur.TpsAttenteMoyControle = simulateur.histo.aireQc/simulateur.nbBus

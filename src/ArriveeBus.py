@@ -1,14 +1,16 @@
 import  src.ArriveeFileC as ArriveeFileC
 from src.Evenement import Evenement
 from src.Maths import *
+import src.Simulateur as Simulateur
+
 
 class ArriveeBus(Evenement):
     def __init__(self):
         super(ArriveeBus, self).__init__()
 
     def procedure(self):
-        from src.Simulateur import Simulateur
-        simulateur = Simulateur()
+
+        simulateur = Simulateur.Simulateur()
         # On ajoute l'evenement arriveeBus dans l'échéancier
         simulateur.ajouterEvenement(simulateur.dateSimu + exp(1 / 2), self)
         # on incrémente le nombre de bus
