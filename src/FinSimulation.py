@@ -16,7 +16,7 @@ class FinSimulation(Evenement):
         if simulateur.nbBusRep > 0:
             simulateur.TpsAttenteMoyReparation = simulateur.histo.aireQr/simulateur.nbBusRep
 
-        simulateur.TauxUtilisationCentrereparation = simulateur.histo.aireBr/(2*simulateur.dureeMax)
+        simulateur.TauxUtilisationCentrereparation = simulateur.histo.aireBr/(2*simulateur.dateSimu)
 
-        simulateur.tailleMoyFileC = simulateur.histo.aireQc/simulateur.dureeMax
-        simulateur.tailleMoyFileR = simulateur.histo.aireQr/simulateur.dureeMax
+        simulateur.tailleMoyFileC = simulateur.histo.aireQc/simulateur.dateSimu
+        simulateur.tailleMoyFileR = simulateur.histo.aireQr/simulateur.dateSimu

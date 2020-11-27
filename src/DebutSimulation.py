@@ -22,4 +22,6 @@ class DebutSimulation(Evenement):
         simu.bc = 0
         simu.br = 0
         simu.ajouterEvenement(simu.dateSimu + exp(1/2),ArriveeBus.ArriveeBus())
-        simu.ajouterEvenement(simu.dureeMax, FinSimulation.FinSimulation())
+        # On ajoute l'evenement de fin de simulation seulement si la duree max de simulation est superieure a 0
+        if simu.dureeMax > 0:
+            simu.ajouterEvenement(simu.dureeMax, FinSimulation.FinSimulation())

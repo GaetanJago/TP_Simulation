@@ -11,7 +11,9 @@ tailleMoyFileR = 0
 
 for i in range(500):
     simulateur.resetSimulateur()
-    simulateur.lancerAvecDureeMax(240)
+    # simulateur.lancerAvecDureeMax(240)
+    simulateur.lancerAvecNbBusMax(30)
+    print("heure simulateur : ", simulateur.dateSimu)
     tpsAttenteMoyenControle += simulateur.TpsAttenteMoyControle
     tpsAttenteMoyenReparation += simulateur.TpsAttenteMoyReparation
     tauxUtilisationCentreReparation += simulateur.TauxUtilisationCentrereparation

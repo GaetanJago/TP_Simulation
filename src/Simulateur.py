@@ -115,6 +115,28 @@ class Simulateur(metaclass=Singleton):
                 # Supprimer de la liste le couple récupéré
                 self.echeancier.pop(0)
 
+    def lancerAvecNbBusMax(self, nbBusMax):
+        self.nbBusMax = nbBusMax
+        self.dateSimu = 0
+
+        self.ajouterEvenement(self.dateSimu, DebutSimulation())
+
+        while len(self.echeancier) != 0:
+            # Récupérer le premier couple de l'échéancier
+            couple = self.echeancier[0]
+
+            # Mise a jour des aires
+            self.miseAJourAires(self.dateSimu, couple[0])
+
+            # maj date
+            self.dateSimu = couple[0]
+            # Executer evenement
+            couple[1].procedure()
+
+            # si la liste n'est pas deja vide
+            if len(self.echeancier) > 0:
+                # Supprimer de la liste le couple récupéré
+                self.echeancier.pop(0)
 
     def miseAJourAires(self, dateD1, dateD2):
         # print("date D1 :", dateD1)
