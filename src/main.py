@@ -8,8 +8,9 @@ tauxUtilisationCentreReparation = 0
 tailleMoyFileC = 0
 tailleMoyFileR = 0
 
+nbSimu = 500
 
-for i in range(500):
+for i in range(nbSimu):
     simulateur.resetSimulateur()
     simulateur.lancerAvecDureeMax(240)
     tpsAttenteMoyenControle += simulateur.TpsAttenteMoyControle
@@ -18,9 +19,9 @@ for i in range(500):
     tailleMoyFileC += simulateur.tailleMoyFileC
     tailleMoyFileR += simulateur.tailleMoyFileR
 
-print("Temps d'attente moyen avant controle : ", tpsAttenteMoyenControle/500)
-print("Temps d'attente moyen avant reparation : ", tpsAttenteMoyenReparation/500)
-print("Taux d'utilisation moyen du centre de réparation: ", tauxUtilisationCentreReparation/500)
-print("Taille moyenne file controle :", tailleMoyFileC/500)
-print("Taille moyenne file reparation :", tailleMoyFileR/500)
+print("Temps d'attente moyen avant controle : ", tpsAttenteMoyenControle/nbSimu)
+print("Temps d'attente moyen avant reparation : ", tpsAttenteMoyenReparation/nbSimu)
+print("Taux d'utilisation moyen du centre de réparation: ", tauxUtilisationCentreReparation/nbSimu)
+print("Taille moyenne file controle :", tailleMoyFileC/nbSimu)
+print("Taille moyenne file reparation :", tailleMoyFileR/nbSimu)
 
