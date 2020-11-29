@@ -13,3 +13,4 @@ class AccesControle(Evenement):
         simulateur.qc -= 1
         simulateur.bc = 1
         simulateur.ajouterEvenement(simulateur.dateSimu + uniforme(1/4,13/12), DepartControle.DepartControle())
+    
