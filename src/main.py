@@ -3,7 +3,9 @@ from src.Simulateur import Simulateur
 simulateur = Simulateur(1, 2, 0.3, 120, 65, 15, 270, 126)
 
 tpsAttenteMoyenControle = 0
+tpsAttenteMoyenControleSansBusAttente = 0
 tpsAttenteMoyenReparation = 0
+tpsAttenteMoyenReparationSansBusAttente = 0
 tauxUtilisationCentreReparation = 0
 tailleMoyFileC = 0
 tailleMoyFileR = 0

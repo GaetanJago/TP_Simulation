@@ -13,6 +13,9 @@ class Simulateur(metaclass=Singleton):
     br = 0
     nbBusRep = 0
 
+    countFileC = 0
+    countFileR = 0
+
     # Paramètrage du simulateur
     nbPosteControle = None
     nbPosteRep = None
@@ -23,6 +26,8 @@ class Simulateur(metaclass=Singleton):
     borneSupRep = None
     borneInfRep = None
 
+    listeBusFileR = []
+    ListeBusFileC = []
 
     #Variables de fin de simulation
     TpsAttenteMoyControle = 0
@@ -126,3 +131,18 @@ class Simulateur(metaclass=Singleton):
         self.histo.aireBr += (dateD2 - dateD1) * self.br
 
 
+    def arriveeBusC(self):
+        #bus = [dateentreefileC, dateSortiefileC]
+        bus = [self.dateSimu, 0.0]
+        self.listeBusFileC.append(bus)
+
+    def sortieBusC(self, numeroBus):
+        self.listeBusFileC[numeroBus][1] = self.dateSimu
+
+    def entreeBusR(self):
+        #bus =  [dateentreefileR, datesortiefileR]
+        bus = [self.dateSimu, 0.0]
+        self.listeBusFileR.append(bus)
+
+    def sortieBusR(self, numeroBus):
+        self.listeBusFileR[numeroBus][1] = self.dateSimu
