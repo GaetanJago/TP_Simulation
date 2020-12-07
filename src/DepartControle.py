@@ -21,4 +21,5 @@ class DepartControle(Evenement):
 
         if generateRandom30() == True:
             simulateur.ajouterEvenement(simulateur.dateSimu, ArriveeFileR.ArriveeFileR())
-
+            # calcul temps d'attente chaque bus [date arrivée file R]
+            simulateur.entreeBusR(simulateur.dateSimu)

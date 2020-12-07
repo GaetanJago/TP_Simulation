@@ -11,6 +11,7 @@ class ArriveeFileR(Evenement):
         simu = Simulateur()
         simu.qr = simu.qr + 1
         simu.nbBusRep = simu.nbBusRep + 1
+
         if simu.br < 2 :
             simu.ajouterEvenement(simu.dateSimu, AccesReparation.AccesReparation())
 

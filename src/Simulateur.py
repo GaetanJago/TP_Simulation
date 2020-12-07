@@ -13,8 +13,7 @@ class Simulateur(metaclass=Singleton):
     br = 0
     nbBusRep = 0
 
-    countFileC = 0
-    countFileR = 0
+
 
     # Paramètrage du simulateur
     nbPosteControle = None
@@ -26,8 +25,13 @@ class Simulateur(metaclass=Singleton):
     borneSupRep = None
     borneInfRep = None
 
-    listeBusFileR = []
-    ListeBusFileC = []
+    #Paramètre de calcul d'attente maximum dans les files
+    listeArriveeBusFileR = []
+    listeDepartBusFileR = []
+    listeArriveeBusFileC = []
+    listeDepartBusFileC = []
+    listeTempsAttenteC = []
+    listeTempsAttenteR = []
 
     #Variables de fin de simulation
     TpsAttenteMoyControle = 0
@@ -81,6 +85,13 @@ class Simulateur(metaclass=Singleton):
         self.dureeMax = 0
         self.nbBusMax = 0
 
+        self.listeArriveeBusFileR = []
+        self.listeDepartBusFileR = []
+        self.listeArriveeBusFileC = []
+        self.listeDepartBusFileC = []
+        self.listeTempsAttenteC = []
+        self.listeTempsAttenteR = []
+
 
     def ajouterEvenement(self, date, evenement):
         iterateur = len(self.echeancier) - 1 # On se positionne a la derniere ligne de l'echeancier
@@ -131,18 +142,41 @@ class Simulateur(metaclass=Singleton):
         self.histo.aireBr += (dateD2 - dateD1) * self.br
 
 
-    def arriveeBusC(self):
-        #bus = [dateentreefileC, dateSortiefileC]
-        bus = [self.dateSimu, 0.0]
-        self.listeBusFileC.append(bus)
+    def arriveeBusC(self, date):
+        self.listeArriveeBusFileC.append(date)
 
-    def sortieBusC(self, numeroBus):
-        self.listeBusFileC[numeroBus][1] = self.dateSimu
+    def sortieBusC(self, date):
+        self.listeDepartBusFileC.append(date)
 
-    def entreeBusR(self):
-        #bus =  [dateentreefileR, datesortiefileR]
-        bus = [self.dateSimu, 0.0]
-        self.listeBusFileR.append(bus)
+    def entreeBusR(self, date):
+        self.listeArriveeBusFileR.append(date)
 
-    def sortieBusR(self, numeroBus):
-        self.listeBusFileR[numeroBus][1] = self.dateSimu
+    def sortieBusR(self, date):
+        self.listeDepartBusFileR.append(date)
+
+    def calculTempsAttente(self):
+        tailleC = len(self.listeDepartBusFileC)
+        tailleR = len(self.listeDepartBusFileR)
+
+        self.listeDepartBusFileC.sort()
+        self.listeDepartBusFileR.sort()
+        self.listeArriveeBusFileC.sort()
+        self.listeArriveeBusFileR.sort()
+
+        for i in range(tailleC):
+            self.listeTempsAttenteC.append(self.listeDepartBusFileC[i] - self.listeArriveeBusFileC[i])
+
+        for j in range(tailleR):
+            self.listeTempsAttenteR.append(self.listeDepartBusFileR[j] - self.listeArriveeBusFileR[j])
+
+    def tempsAttenteMaxC(self):
+        if self.listeTempsAttenteC:
+           return max(self.listeTempsAttenteC)
+        else:
+            return 0
+
+    def tempsAttenteMaxR(self):
+        if self.listeTempsAttenteR:
+            return max(self.listeTempsAttenteR)
+        else:
+            return 0

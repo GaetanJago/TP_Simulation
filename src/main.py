@@ -9,6 +9,8 @@ tpsAttenteMoyenReparationSansBusAttente = 0
 tauxUtilisationCentreReparation = 0
 tailleMoyFileC = 0
 tailleMoyFileR = 0
+listeTempsAttenteMaxC = []
+listeTempsAttenteMaxR = []
 
 
 for i in range(500):
@@ -20,9 +22,17 @@ for i in range(500):
     tailleMoyFileC += simulateur.tailleMoyFileC
     tailleMoyFileR += simulateur.tailleMoyFileR
 
+    simulateur.calculTempsAttente()
+    tempsAttenteMaxC = simulateur.tempsAttenteMaxC()
+    tempsAttenteMaxR = simulateur.tempsAttenteMaxR()
+    listeTempsAttenteMaxC.append(tempsAttenteMaxC)
+    listeTempsAttenteMaxR.append(tempsAttenteMaxR)
+
 print("Temps d'attente moyen avant controle : ", tpsAttenteMoyenControle/500)
 print("Temps d'attente moyen avant reparation : ", tpsAttenteMoyenReparation/500)
 print("Taux d'utilisation moyen du centre de réparation: ", tauxUtilisationCentreReparation/500)
 print("Taille moyenne file controle :", tailleMoyFileC/500)
 print("Taille moyenne file reparation :", tailleMoyFileR/500)
+print("Temps d'attente maximum des bus dans la file de controle :", max(listeTempsAttenteMaxC))
+print("Temps d'attente maximum des bus dans la file de réparation :", max(listeTempsAttenteMaxR))
 

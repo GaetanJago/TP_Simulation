@@ -12,9 +12,9 @@ class AccesControle(Evenement):
         simulateur = Simulateur()
         simulateur.qc -= 1
         simulateur.bc = 1
+        date = simulateur.dateSimu + uniforme(1/4,13/12)
 
         #calcul temps d'attente chaque bus [date sortie file C]
-        simulateur.sortieBusC(simulateur.countFileC)
-        simulateur.countFileC += 1
+        simulateur.sortieBusC(date)
 
-        simulateur.ajouterEvenement(simulateur.dateSimu + uniforme(1/4,13/12), DepartControle.DepartControle())
+        simulateur.ajouterEvenement(date, DepartControle.DepartControle())

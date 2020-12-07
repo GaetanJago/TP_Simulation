@@ -16,6 +16,11 @@ class AccesReparation (Evenement):
         simulateur.qr = simulateur.qr - 1
         #on réquisitionne un poste dans le centre de réparation
         simulateur.br = simulateur.br + 1
-        # On ajoute l'evenement DepartReparation dans l'échéancier
-        simulateur.ajouterEvenement(simulateur.dateSimu + uniforme(2.1, 4.5), DepartReparation.DepartReparation())
+        date = simulateur.dateSimu + uniforme(2.1, 4.5)
 
+        # calcul temps d'attente chaque bus [date sortie file R]
+        simulateur.sortieBusR(date)
+
+
+        # On ajoute l'evenement DepartReparation dans l'échéancier
+        simulateur.ajouterEvenement(date, DepartReparation.DepartReparation())
