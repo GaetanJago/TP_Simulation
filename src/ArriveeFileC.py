@@ -1,5 +1,5 @@
-import  src.AccesControle as AccesControle
-from src.Evenement import Evenement
+import AccesControle as AccesControle
+from Evenement import Evenement
 
 class ArriveeFileC(Evenement):
 
@@ -7,7 +7,7 @@ class ArriveeFileC(Evenement):
         super(ArriveeFileC, self).__init__()
 
     def procedure(self):
-        from src.Simulateur import Simulateur
+        from Simulateur import Simulateur
         simulateur = Simulateur()
         simulateur.qc += 1
         if simulateur.bc == 0:

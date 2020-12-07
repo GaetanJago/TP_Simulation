@@ -1,6 +1,6 @@
-from src.Evenement import Evenement
-from src.Maths import *
-import src.DepartControle as DepartControle
+from Evenement import Evenement
+from Maths import *
+import DepartControle as DepartControle
 
 class AccesControle(Evenement):
 
@@ -8,7 +8,7 @@ class AccesControle(Evenement):
         super(AccesControle, self).__init__()
 
     def procedure(self):
-        from src.Simulateur import Simulateur
+        from Simulateur import Simulateur
         simulateur = Simulateur()
         simulateur.qc -= 1
         simulateur.bc = 1

@@ -1,6 +1,5 @@
-import src.AccesReparation as AccesReparation
-from src.Evenement import Evenement
-
+import AccesReparation as AccesReparation
+from Evenement import Evenement
 
 class DepartReparation (Evenement):
 
@@ -8,7 +7,7 @@ class DepartReparation (Evenement):
         super(DepartReparation, self).__init__()
 
     def procedure(self):
-        from src.Simulateur import Simulateur
+        from Simulateur import Simulateur
         simulateur = Simulateur()
         # on libère un poste dans le centre de réparation
         simulateur.br = simulateur.br - 1

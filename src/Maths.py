@@ -1,5 +1,4 @@
 """Module contenant diverses fonctions mathématique nécessaires au TP"""
-
 from random import random
 from math import *
 

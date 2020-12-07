@@ -62,11 +62,3 @@ class Historique:
         tempsMoyTotal = tempsMoyAvantC + tempsMoyAvantR
         print(tempsMoyTotal)
         return tempsMoyTotal
-
-
-if __name__ == '__main__':
-    histo = Historique([1,3,4], [23, 4, 5, 6], [9, 7, 2], [10, 5, 8, 7, 6], [4, 6, 3], [1, 0, 1])
-    # Historique.afficherGraphe(histo)
-    Historique.calcAire(histo, 1, 11)
-    Historique.attenteMoy(histo, 10, 5, 1, 11)
-    Historique.attenteMoyTotal(histo, 10, 5, 1, 11)

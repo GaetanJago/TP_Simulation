@@ -1,7 +1,6 @@
-from src.DebutSimulation import DebutSimulation
-from src.Singleton import Singleton
-from src.Historique import Historique
-
+from DebutSimulation import DebutSimulation
+from Singleton import Singleton
+from Historique import Historique
 
 class Simulateur(metaclass=Singleton):
 
@@ -23,7 +22,6 @@ class Simulateur(metaclass=Singleton):
     borneSupRep = None
     borneInfRep = None
 
-
     #Variables de fin de simulation
     TpsAttenteMoyControle = 0
     TpsAttenteMoyReparation = 0
@@ -31,6 +29,11 @@ class Simulateur(metaclass=Singleton):
     tailleMoyFileC = 0
     tailleMoyFileR = 0
 
+    TpsAttenteMoyenControleExcluentBusAttente = 0
+    psAttenteMoyenReparationExcluentBusAttente = 0
+
+    dateSimulationC = []
+    dateSimulationR = []
 
     histo = Historique()
 
@@ -70,6 +73,11 @@ class Simulateur(metaclass=Singleton):
         self.tailleMoyFileC = 0
         self.tailleMoyFileR = 0
 
+        self.TpsAttenteMoyenControleExcluentBusAttente = 0
+        self.TpsAttenteMoyenReparationExcluentBusAttente = 0
+        self.dateSimulationC = []
+        self.dateSimulationR = []
+
         self.histo = Historique()
         self.echeancier = []
 
@@ -105,6 +113,10 @@ class Simulateur(metaclass=Singleton):
             # Mise a jour des aires
             self.miseAJourAires(self.dateSimu, couple[0])
 
+            if(str(couple[1]).find('ArriveeFileC') != -1):
+                self.dateSimulationC.append(self.dateSimu)
+            if(str(couple[1]).find('ArriveeFileR') != -1):
+                self.dateSimulationR.append(self.dateSimu)
             # maj date
             self.dateSimu = couple[0]
             # Executer evenement

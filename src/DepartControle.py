@@ -1,8 +1,7 @@
-import src.AccesControle as AccesControle
-import src.ArriveeFileR as ArriveeFileR
-from src.Evenement import Evenement
-from src.Maths import generateRandom30
-
+import AccesControle as AccesControle
+import ArriveeFileR as ArriveeFileR
+from Evenement import Evenement
+from Maths import generateRandom30
 
 class DepartControle(Evenement):
 
@@ -10,7 +9,7 @@ class DepartControle(Evenement):
         super(DepartControle, self).__init__()
 
     def procedure(self):
-        from src.Simulateur import Simulateur
+        from Simulateur import Simulateur
         simulateur = Simulateur()
 
         simulateur.bc = 0 # Changer le statut du centre de contrôle en libre

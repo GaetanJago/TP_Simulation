@@ -1,7 +1,7 @@
-from src.Evenement import Evenement
-import  src.ArriveeBus as ArriveeBus
-import  src.FinSimulation as FinSimulation
-from src.Maths import *
+from Evenement import Evenement
+import  ArriveeBus as ArriveeBus
+import  FinSimulation as FinSimulation
+from Maths import *
 
 class DebutSimulation(Evenement):
 
@@ -9,7 +9,7 @@ class DebutSimulation(Evenement):
         super(DebutSimulation, self).__init__()
 
     def procedure(self):
-        from src.Simulateur import Simulateur
+        from Simulateur import Simulateur
         simu = Simulateur()
         simu.nbBus = 0
         simu.nbBusRep = 0

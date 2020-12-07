@@ -1,7 +1,6 @@
-import src.DepartReparation as DepartReparation
-from src.Evenement import Evenement
-from src.Maths import *
-
+import DepartReparation as DepartReparation
+from Evenement import Evenement
+from Maths import *
 
 class AccesReparation (Evenement):
 
@@ -10,7 +9,7 @@ class AccesReparation (Evenement):
         super(AccesReparation, self).__init__()
 
     def procedure(self):
-        from src.Simulateur import Simulateur
+        from Simulateur import Simulateur
         simulateur = Simulateur()
         #on décrémente le nombre de bus
         simulateur.qr = simulateur.qr - 1
