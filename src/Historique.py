@@ -6,8 +6,18 @@ class Historique:
     aireQr = 0
     aireBr = 0
 
+    datesArriveeBus = []
+    datesBusAccesControle = []
+    tempsAttenteBusAvantControle = []
+
     def __init__(self):
-        pass
+        self.aireQc = 0
+        self.aireQr = 0
+        self.aireBr = 0
+
+        self.datesArriveeBus = []
+        self.datesBusAccesControle = []
+        self.tempsAttenteBusAvantControle = []
 
     # def __init__(self, nbBusHisto, qcHisto, qrHisto, bcHisto, nbBusRepHisto, brHisto):
     #     self.nbBusHisto = nbBusHisto

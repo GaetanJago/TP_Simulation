@@ -20,3 +20,6 @@ class FinSimulation(Evenement):
 
         simulateur.tailleMoyFileC = simulateur.histo.aireQc/simulateur.dateSimu
         simulateur.tailleMoyFileR = simulateur.histo.aireQr/simulateur.dateSimu
+
+        for i in range(len(simulateur.histo.datesBusAccesControle)):
+            simulateur.histo.tempsAttenteBusAvantControle.append(simulateur.histo.datesBusAccesControle[i] - simulateur.histo.datesArriveeBus[i])
