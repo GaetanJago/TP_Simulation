@@ -1,7 +1,7 @@
 from src.Simulateur import Simulateur
 import matplotlib.pyplot as plt
 
-def question3():
+def question4():
 
     # LECTURE DES DONNEES
     with open('DonneesControle.txt') as f:
@@ -73,8 +73,8 @@ def simulator():
     print("Taille moyenne file controle :", tailleMoyFileC/nbSimu)
     print("Taille moyenne file reparation :", tailleMoyFileR/nbSimu)
 
-# Launch question 3
-question3()
+# Launch question 4
+question4()
 
 # Launch simulateur
-#simulator()
+# simulator()
