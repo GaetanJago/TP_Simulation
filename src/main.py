@@ -15,7 +15,7 @@ listeTempsAttenteMaxR = []
 
 for i in range(500):
     simulateur.resetSimulateur()
-    simulateur.lancerAvecDureeMax(240)
+    simulateur.lancerAvecDureeMax(160)
     tpsAttenteMoyenControle += simulateur.TpsAttenteMoyControle
     tpsAttenteMoyenReparation += simulateur.TpsAttenteMoyReparation
     tauxUtilisationCentreReparation += simulateur.TauxUtilisationCentrereparation
@@ -33,6 +33,9 @@ print("Temps d'attente moyen avant reparation : ", tpsAttenteMoyenReparation/500
 print("Taux d'utilisation moyen du centre de réparation: ", tauxUtilisationCentreReparation/500)
 print("Taille moyenne file controle :", tailleMoyFileC/500)
 print("Taille moyenne file reparation :", tailleMoyFileR/500)
+
 print("Temps d'attente maximum des bus dans la file de controle :", max(listeTempsAttenteMaxC))
 print("Temps d'attente maximum des bus dans la file de réparation :", max(listeTempsAttenteMaxR))
+print("Temps d'attente maximum moyen des bus dans la file de controle :", sum(listeTempsAttenteMaxC)/500)
+print("Temps d'attente maximum moyen des bus dans la file de réparation :", sum(listeTempsAttenteMaxR)/500)
 
